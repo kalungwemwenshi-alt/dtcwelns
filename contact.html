@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us — Dotcom Wellness</title>
+    <meta name="description" content="Contact Dotcom Wellness — Official Norland Distributor Zambia. Reach out for product inquiries, orders and support." />
+    <link rel="icon" type="image/png" href="pictures/favicon.PNG" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Small page-specific overrides to match site theme */
+        .contact-hero {
+            background: linear-gradient(180deg, rgba(46,74,54,0.85), rgba(46,74,54,0.85)), url('pictures/contact-banner.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 56px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: start;
+            padding: 36px 0;
+        }
+        @media (max-width:900px){
+            .contact-inner { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: var(--card-bg, #fff);
+            border-radius: 12px;
+            box-shadow: 0 8px 26px rgba(7,20,37,0.08);
+            padding: 18px;
+        }
+        .contact-details h3 { margin: 0 0 10px 0; font-size: 18px; }
+        .contact-row { display:flex; gap:12px; align-items:center; margin-bottom:10px; color: var(--muted,#444); }
+        .contact-row img { width:22px; height:22px; opacity:.95; }
+        .form-field { margin-bottom:12px; }
+        label { display:block; font-weight:600; margin-bottom:6px; font-size:13px; }
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width:100%;
+            padding:10px 12px;
+            border:1px solid #e6e6e6;
+            border-radius:8px;
+            font-size:14px;
+            font-family: inherit;
+            background: #fff;
+            color: #111;
+            box-sizing: border-box;
+        }
+        textarea { min-height:120px; resize:vertical; }
+        .form-actions { display:flex; gap:12px; align-items:center; margin-top:6px; }
+        .btn-primary { background:#2e4a36; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
+        .btn-secondary { background:#f3f4f6; color:#111; padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6; cursor:pointer; }
+        .small-muted { font-size:13px; color:#6b7280; }
+        .map-embed { border-radius:10px; overflow:hidden; height:220px; border:1px solid #eee; }
+        .success-note { background:#ecfdf5; color:#065f46; padding:10px 12px; border-radius:8px; display:none; margin-top:8px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation (keeps same structure as other pages) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="pictures/logo.PNG" alt="Dotcom Wellness Logo" class="logo-img">
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#products" class="btn-secondary">Shop</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / page title -->
+    <header class="contact-hero">
+        <div class="container fade-in-section">
+            <h1 style="font-family:'Poppins',sans-serif; font-weight:700; margin:0 0 6px;">Contact Dotcom Wellness</h1>
+           <p class="small-muted" style="margin:0; color: white;">
+            We're here to help get in touch with product enquiries, orders or support.
+            </p>
+        </div>
+    </header>
+
+    <main class="container" style="padding:28px 0;">
+        <section class="contact-inner fade-in-section">
+            <!-- Left: contact form -->
+            <div>
+                <div class="card" aria-labelledby="contactFormTitle">
+                    <h2 id="contactFormTitle" style="margin-top:0;margin-bottom:6px;font-size:20px;">Send us a message</h2>
+                    <p class="small-muted" style="margin-top:0;margin-bottom:16px;">Fill the form below or use the quick WhatsApp button on the site to message us directly.</p>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form-field">
+                            <label for="name">Full name</label>
+                            <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+                        </div>
+
+                        <div class="form-field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                            <div>
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                            </div>
+                            <div>
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="tel" placeholder="+260 9xx xxx xxx" />
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
+                        </div>
+
+                        <div class="form-field">
+                            <label><input id="consent" type="checkbox" /> I consent to Dotcom Wellness contacting me regarding my enquiry.</label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Send message</button>
+                            <button type="button" id="sendWhatsApp" class="btn-secondary" title="Send via WhatsApp">Send via WhatsApp</button>
+                            <div id="formNote" class="success-note" role="status" aria-live="polite">Thanks — your message was prepared. A new tab was opened for WhatsApp.</div>
+                        </div>
+                    </form>
+
+                    <p class="small-muted" style="margin-top:14px;">Or reach us directly using the details on the right. We usually respond within one business day.</p>
+                </div>
+
+                <!-- optional small FAQ or hours -->
+                <div style="margin-top:14px;">
+                    <div class="card" style="padding:12px;">
+                        <strong>Opening hours</strong>
+                        <div class="small-muted" style="margin-top:6px;">
+                            Mon — Fri: 08:00 — 17:00<br>
+                            Sunday: 09:00 — 13:00<br>
+                            Saturday: Closed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: contact details + map -->
+            <aside style="min-width:280px;">
+                <div class="card contact-details">
+                    <h3>Contact details</h3>
+
+                    <div class="contact-row">
+                        <img src="pictures/WhatsApp.svg.webp" alt="">
+                        <div>
+                            <div style="font-weight:700">+260 96 111 1468</div>
+                            <div class="small-muted">WhatsApp / Phone</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <img src="pictures/emai.png" alt="">
+                        <div>
+                            <div style="font-weight:700">consult.dotcomwellness@gmail.com</div>
+                            <div class="small-muted">General enquiries</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <img src="pictures/loca.png" alt="">
+                        <div>
+                            <div style="font-weight:700">Livingstone, Zambia</div>
+                            <div class="small-muted">distribution</div>
+                        </div>
+                    </div>
+
+                    <hr style="border:none;border-top:1px solid #f0f0f0;margin:12px 0;">
+
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <a class="btn-secondary" href="https://maps.google.com" target="_blank" rel="noopener">Get directions</a>
+                        <a class="btn-secondary" href="tel:+260961111468">Call us</a>
+                        <a class="btn-secondary" href="mailto:info@dotcomwellness.co.zm">Email</a>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:14px;">
+                    <h3 style="margin-bottom:8px;">Location</h3>
+                    <div class="map-embed">
+                        <!-- Option A — search query (Livingstone, Zambia) -->
+                        <iframe
+                            src="https://maps.google.com/maps?q=Livingstone%2C%20Zambia&z=13&output=embed"
+                            width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <!-- Option B — coordinates (centered on Livingstone) -->
+                        <!--
+                        <iframe
+                            src="https://maps.google.com/maps?q=-17.8419,25.8543&z=14&output=embed"
+                            width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        -->
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <!-- Footer (keeps same minimal structure as other pages) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <strong>Dotcom Wellness</strong>
+                    <div class="small-muted">Official Norland Distributor Zambia</div>
+                </div>
+                <div>
+                    <strong>Help</strong>
+                    <div class="small-muted"><a href="contact.html">Contact</a> · <a href="aboutus.html">About</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom small-muted" style="margin-top:16px;">
+                © Dotcom Wellness — All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple page script: handles form & WhatsApp quick send -->
+    <script>
+        (function () {
+            "use strict";
+            const form = document.getElementById('contactForm');
+            const waBtn = document.getElementById('sendWhatsApp');
+            const note = document.getElementById('formNote');
+            const WA_NUMBER = 'https://wa.link/m0u3r7';
+
+            function buildMessage() {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const lines = [];
+                if (name) lines.push('Name: ' + name);
+                if (email) lines.push('Email: ' + email);
+                if (phone) lines.push('Phone: ' + phone);
+                if (message) lines.push('Message: ' + message);
+                return lines.join('\n');
+            }
+
+            // On submit: open WhatsApp link prefilled and show note (client-side only)
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // basic validation
+                const required = ['name', 'email', 'message'];
+                for (const id of required) {
+                    const el = document.getElementById(id);
+                    if (!el || !el.value.trim()) {
+                        el.focus();
+                        return;
+                    }
+                }
+                const text = buildMessage();
+                const url = WA_NUMBER + '?text=' + encodeURIComponent(text);
+                window.open(url, '_blank', 'noopener');
+                note.style.display = 'block';
+                setTimeout(() => note.style.display = 'none', 4500);
+                form.reset();
+            });
+
+            // Quick WhatsApp send button
+            waBtn.addEventListener('click', function () {
+                const text = buildMessage() || 'Hello Dotcom Wellness, I would like some information.';
+                const url = WA_NUMBER + '?text=' + encodeURIComponent(text);
+                window.open(url, '_blank', 'noopener');
+                note.textContent = 'Opening WhatsApp...';
+                note.style.display = 'block';
+                setTimeout(() => note.style.display = 'none', 3000);
+            });
+        })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
