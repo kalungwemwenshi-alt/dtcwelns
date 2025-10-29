@@ -29,7 +29,7 @@
                     <img src="pictures/logo.PNG" alt="Dotcom Wellness Logo" class="logo-img">
                 </a>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -40,46 +40,31 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="nav-icons">
-                <button class="icon-btn" aria-label="Search">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                </button>
-                <button class="icon-btn" aria-label="Cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                </button>
-            </div>
+            <!-- search & cart removed -->
         </div>
     </nav>
 
     <!-- Hero Slider -->
     <section class="hero-slider">
         <div class="slider-container">
-            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.7), rgba(46, 74, 54, 0.7)), url('pictures/nola.jpeg') center/cover;">
+            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/nola.jpeg') center/cover;">
                 <div class="slide-content">
                     <h1>The Future of Regenerative Wellness</h1>
                    <a href="blog.html" class="btn-primary">Read More</a>
                 </div>
             </div>
-            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.7), rgba(46, 74, 54, 0.7)), url('pictures/bannerman.png') center/cover;">
+            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bannerman.png') center/cover;">
                 <div class="slide-content fade-in">
                     <h1>Latest Wellness News in Zambia</h1>
                     <a href="blog.html" class="btn-primary">Read More</a>
                 </div>
             </div>
-            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.7), rgba(46, 74, 54, 0.7)), url('pictures/bannertwo.png') center/cover;">
+            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bannertwo.png') center/cover;">
                 <div class="slide-content">
                     <h1>Africa's Green Health Movement</h1>
-                    <a href="blog.html" class="btn-primary">Read More</a>
                 </div>
             </div>        
-            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.7), rgba(46, 74, 54, 0.7)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1600') center/cover;">
+            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1600') center/cover;">
                 <div class="slide-content fade-in">
                     <h1>Natural Solutions for Better Health</h1>
                     <a href="blog.html" class="btn-primary">Read More</a>
@@ -96,51 +81,64 @@
     <!-- Featured Products -->
     <section class="products-section" id="products">
         <div class="container">
-            <h2 class="section-title fade-in-section">Shop Our Best-Selling Wellness Products</h2>
+            <h2 class="section-title fade-in-section">Search Thhrough The Best-Selling Wellness & Regenerative Products</h2>
                 <div class="products-grid">
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/giv.png') center/cover;"></div>
                         <h3>GI Vital Softgel Capsules</h3>
-                        <p class="price">natural</p>
+                        <p class="price">GIT ulcers, indigestion and gastritis</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                     <div class="product-card fade-in-section">
-                        <div class="product-image" style="background: url('https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=400') center/cover;"></div>
+                        <div class="product-image" style="background: url('pictures/hypo1.png') center/cover;"></div>
                         <h3>Hypoglycemic Capsules</h3>
-                        <p class="price">natural</p>
+                        <p class="price">Diabetis</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/detox.jpg') center/cover;"></div>
                         <h3>Detox Wuqin Pack</h3>
-                        <p class="price">natural</p>
+                        <p class="price">Full body detoxification</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
 
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/immune.png') center/cover;"></div>
                         <h3>Immune Plus Capsules</h3>
-                        <p class="price">natural</p>
+                        <p class="price">natural immunity Jumpstarter</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/eyenu.png') center/cover;"></div>
                         <h3>Vision Vitale Capsules</h3>
-                        <p class="price">natural</p>
+                        <p class="price">Eye problems, strain, cataract and glaucoma</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('https://images.unsplash.com/photo-1526413232644-8a40f03cc03b?w=400') center/cover;"></div>
                         <h3>Female Care Pads</h3>
-                        <p class="price">natural</p>
+                        <p class="price">Early menopause & Menstrual problems</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/toothpaste.png') center/cover;"></div>
                         <h3>Herbal Toothpaste</h3>
-                        <p class="price">natural</p>
+                        <p class="price">Dental and Fungal anormalies</p>
                         <button class="btn-secondary">Learn More</button>
                     </div>
+                    <div class="product-card fade-in-section">
+                        <div class="product-image" style="background: url('pictures/propli1.png') center/cover;"></div>
+                        <h3>Propolis Lecithin Capsules</h3>
+                        <p class="price">Immunity and fight aging</p>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                    <div class="product-card fade-in-section">
+                        <div class="product-image" style="background: url('pictures/bcarot.png') center/cover;"></div>
+                        <h3>Beta Carotene Capsules</h3>
+                        <p class="price">anti-aging and vision support.</p>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+
                 </div>
             </div>
 
@@ -181,6 +179,7 @@
                     <p>Learn how Africa is leading the green health revolution and what it means for the future of wellness on the continent.</p>
                     <a href="blog.html" class="read-more">Read More →</a>
                 </article>
+
             </div>
         </div>
     </section>
@@ -230,7 +229,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Dotcom Wellness | Designed by Finespot Designs</p>
+                <p>&copy; 2025 Dotcom Wellness | Designed by <b>Finespot Group</b></p>
             </div>
         </div>
     </footer>
@@ -240,7 +239,6 @@
         /* WhatsApp FAB & popup - fixed to bottom-right on all devices, respects safe area */
         #wa-fab {
             position: fixed;
-            /* respect safe-area insets on notch devices */
             right: calc(env(safe-area-inset-right, 0px) + 20px);
             bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
             z-index: 99999;
@@ -248,7 +246,7 @@
             flex-direction: column;
             align-items: flex-end;
             gap: 12px;
-            pointer-events: auto; /* allow clicks on the container and children */
+            pointer-events: auto;
         }
 
         .wa-fab-btn {
@@ -271,7 +269,7 @@
         #wa-popup {
             position: absolute;
             right: 0;
-            bottom: calc(56px + 12px); /* place above the FAB */
+            bottom: calc(56px + 12px);
             width: 320px;
             max-width: calc(100vw - 40px);
             border-radius: 12px;
@@ -281,15 +279,26 @@
             transform-origin: bottom right;
             transform: translateY(8px) scale(0.98);
             opacity: 0;
-            transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 220ms;
+            transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 220ms, box-shadow 220ms;
             font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
             color: #222;
-            pointer-events: auto;
+            pointer-events: none;
         }
 
+        /* visible on click (persistent) */
         #wa-popup.open {
             transform: translateY(0) scale(1);
             opacity: 1;
+            pointer-events: auto;
+            box-shadow: 0 28px 60px rgba(7,20,37,0.28);
+        }
+
+        /* also show on hover of the whole FAB container (transient) */
+        #wa-fab:hover #wa-popup {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+            box-shadow: 0 28px 60px rgba(7,20,37,0.22);
         }
 
         #wa-popup .wa-header{
@@ -337,7 +346,12 @@
         }
         #wa-popup .wa-header .close-btn:hover { background: rgba(255,255,255,0.06); }
 
-        #wa-popup .wa-body { padding: 12px; }
+        #wa-popup .wa-body {
+            padding: 12px;
+            min-height: 80px;
+            max-height: 260px;
+            overflow: auto;
+        }
 
         .wa-bubble {
             background: #f1f3f4;
@@ -347,6 +361,31 @@
             margin-bottom: 8px;
             font-size: 13px;
             line-height: 1.35;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .wa-bubble.from-agent {
+            background: #e8f9ee;
+            color: #0b5f37;
+        }
+
+        /* typing cursor */
+        .typing-cursor {
+            display:inline-block;
+            width:6px;
+            height:1em;
+            background: #17b256;
+            margin-left:8px;
+            border-radius: 2px;
+            vertical-align:middle;
+            animation: blink 1s steps(1,start) infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .wa-footer {
@@ -399,9 +438,8 @@
             </div>
 
             <div class="wa-body">
-                <div class="wa-bubble">Hello, how are you today</div>
-                <div class="wa-bubble">Dotcom Wellness Store | Official Norland Distributor Zambia</div>
-                <div class="wa-bubble">Can we help you?</div>
+                <!-- messages injected by JS for typing effect -->
+                <div class="messages" aria-live="polite"></div>
             </div>
 
             <div class="wa-footer">
@@ -419,51 +457,134 @@
             const popup = document.getElementById('wa-popup');
             const closeBtn = document.getElementById('wa-popup-close');
             const openLink = document.getElementById('wa-open-link');
+            const messagesContainer = popup.querySelector('.messages');
             const WA_URL = 'https://wa.link/m0u3r7';
 
-            if (!fabBtn || !popup) return;
+            if (!fabBtn || !popup || !messagesContainer) return;
 
-            const openPopup = () => {
+            let typingStarted = false;
+            let persistentOpen = false;
+            let closeTimeout = null;
+
+            // sample messages to show (customize as needed)
+            const messages = [
+                "Hello, how are you today?",
+                "Dotcom Wellness Store | Official Norland Distributor Livingstone Zambia",
+                "Can we help you find a product or answer a question?"
+            ];
+
+            const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+
+            async function typeMessage(text, container, speed = 25) {
+                const bubble = document.createElement('div');
+                bubble.className = 'wa-bubble from-agent';
+                container.appendChild(bubble);
+                // create cursor
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                bubble.appendChild(cursor);
+
+                // type characters
+                for (let i = 0; i < text.length; i++) {
+                    // insert before cursor
+                    cursor.insertAdjacentText('beforebegin', text[i]);
+                    await sleep(speed + Math.random() * 20);
+                    // scroll container to bottom while typing
+                    container.parentElement.scrollTop = container.parentElement.scrollHeight;
+                }
+                // remove cursor
+                cursor.remove();
+                // small pause after a message
+                await sleep(300);
+            }
+
+            async function runTypingSequence() {
+                if (typingStarted) return;
+                typingStarted = true;
+                messagesContainer.innerHTML = '';
+                for (let i = 0; i < messages.length; i++) {
+                    await typeMessage(messages[i], messagesContainer);
+                    await sleep(450);
+                }
+            }
+
+            function openPopup(persistent = false) {
                 popup.classList.add('open');
                 popup.setAttribute('aria-hidden', 'false');
-            };
-            const closePopup = () => {
+                persistentOpen = persistent || persistentOpen;
+                // start typing only once per session by default
+                runTypingSequence().catch(() => {});
+            }
+
+            function closePopup() {
+                if (persistentOpen) return; // do not close when user toggled persistent open
                 popup.classList.remove('open');
                 popup.setAttribute('aria-hidden', 'true');
-            };
-            const toggle = () => popup.classList.contains('open') ? closePopup() : openPopup();
+            }
 
+            // click toggles persistent open/close
             fabBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                toggle();
+                if (popup.classList.contains('open') && persistentOpen) {
+                    // close persistent
+                    persistentOpen = false;
+                    popup.classList.remove('open');
+                    popup.setAttribute('aria-hidden', 'true');
+                } else {
+                    persistentOpen = true;
+                    openPopup(true);
+                }
             });
 
+            // hover opens transiently (and triggers typing if not started)
+            const onEnter = () => {
+                clearTimeout(closeTimeout);
+                openPopup(false);
+            };
+
+            const onLeave = () => {
+                // close after short delay if not persistent
+                clearTimeout(closeTimeout);
+                closeTimeout = setTimeout(() => {
+                    if (!persistentOpen) closePopup();
+                }, 900);
+            };
+
+            // attach hover on container so hovering popup keeps it open
+            const fabContainer = document.getElementById('wa-fab');
+            fabContainer.addEventListener('mouseenter', onEnter);
+            fabContainer.addEventListener('mouseleave', onLeave);
+
+            // Close button
             closeBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                persistentOpen = false;
                 closePopup();
             });
 
             openLink.addEventListener('click', (e) => {
-                // open wa link in new tab
                 window.open(WA_URL, '_blank', 'noopener');
             });
 
-            // close when clicking outside popup
+            // close when clicking outside popup unless it's persistent open
             document.addEventListener('click', (e) => {
                 if (!popup.classList.contains('open')) return;
-                if (popup.contains(e.target) || fabBtn.contains(e.target)) return;
+                if (popup.contains(e.target) || fabContainer.contains(e.target)) return;
+                // if persistent, clicking outside should close persistent too
+                persistentOpen = false;
                 closePopup();
             });
 
             // close on ESC
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closePopup();
+                if (e.key === 'Escape') {
+                    persistentOpen = false;
+                    closePopup();
+                }
             });
 
-            // ensure popup is correctly positioned after orientation change / resize
-            window.addEventListener('resize', () => {
-                // no-op now, kept for future adjustments
-            });
+            // if user resizes, keep popup within viewport (no-op but kept)
+            window.addEventListener('resize', () => { /* noop */ });
         })();
     </script>
 
