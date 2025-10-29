@@ -82,25 +82,83 @@
     }
 
     /* ---------- Hamburger / mobile nav toggle ---------- */
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            hamburger.classList.toggle('open');
-            navMenu.classList.toggle('open');
-            document.body.classList.toggle('nav-open');
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        // NAV / HAMBURGER
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navbar = document.getElementById('navbar');
 
-        // close when clicking outside
-        document.addEventListener('click', (evt) => {
-            if (!navMenu.contains(evt.target) && !hamburger.contains(evt.target)) {
-                navMenu.classList.remove('open');
-                hamburger.classList.remove('open');
+        function isMobileWidth() {
+            return window.innerWidth < 768;
+        }
+
+        if (hamburger && navMenu) {
+            const openMenu = () => {
+                hamburger.classList.add('active');
+                navMenu.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('nav-open'); // optional: lock scroll if you add CSS
+            };
+
+            const closeMenu = () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
                 document.body.classList.remove('nav-open');
-            }
-        });
-    }
+            };
+
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.contains('active') ? closeMenu() : openMenu();
+            });
+
+            // Close when clicking a nav link on mobile
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMobileWidth()) closeMenu();
+                });
+            });
+
+            // Close when clicking outside the menu (desktop + mobile)
+            const outsideHandler = (e) => {
+                if (!navMenu.classList.contains('active')) return;
+                if (navMenu.contains(e.target) || hamburger.contains(e.target)) return;
+                closeMenu();
+            };
+            document.addEventListener('click', outsideHandler);
+            document.addEventListener('touchstart', outsideHandler, { passive: true });
+
+            // Close on ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            // Ensure menu state resets on resize (so desktop layout doesn't keep mobile .active)
+            window.addEventListener('resize', () => {
+                if (!isMobileWidth()) {
+                    // remove mobile-only active state; desktop CSS should display menu
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    document.body.classList.remove('nav-open');
+                }
+            });
+        }
+
+        // Ensure all visible buttons respond on mobile (touchstart fallback)
+        // Add a tiny helper so touch devices get immediate feedback
+        document.querySelectorAll('button, a.btn-primary, a.btn-secondary, .icon-btn, .wa-fab-btn, .wa-open-btn')
+            .forEach(el => {
+                // avoid doubling handlers on elements that manage themselves
+                if (!el.hasAttribute('data-fastbound')) {
+                    el.addEventListener('touchstart', () => {}, { passive: true }); // quick touch binding to improve responsiveness on some mobiles
+                    el.setAttribute('data-fastbound', '1');
+                }
+            });
+
+        // Accessibility: ensure interactive elements inside the page are focusable
+        document.querySelectorAll('button:not([tabindex])').forEach(b => b.setAttribute('tabindex', '0'));
+    });
 
     /* ---------- Fade-in sections (reveal on scroll) ---------- */
     const faders = document.querySelectorAll('.fade-in-section');
