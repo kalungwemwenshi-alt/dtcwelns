@@ -18,6 +18,20 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Prevent hero H1 flicker on hover (force GPU compositing, smoother font rendering) -->
+    <style>
+        .hero-slider .slide-content h1 {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform, opacity;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +61,7 @@
     <!-- Hero Slider -->
     <section class="hero-slider">
         <div class="slider-container">
-            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/nola.jpeg') center/cover;">
+            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bannerlast.jpg') center/cover;">
                 <div class="slide-content">
                     <h1>The Future of Regenerative Wellness</h1>
                    <a href="blog.html" class="btn-primary">Read More</a>
@@ -59,12 +73,12 @@
                     <a href="blog.html" class="btn-primary">Read More</a>
                 </div>
             </div>
-            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bannertwo.png') center/cover;">
+            <div class="slide" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bano12.png') center/cover;">
                 <div class="slide-content">
                     <h1>Africa's Green Health Movement</h1>
                 </div>
             </div>        
-            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1600') center/cover;">
+            <div class="slide active" style="background: linear-gradient(rgba(46, 74, 54, 0.35), rgba(46, 74, 54, 0.35)), url('pictures/bannelast2.png') center/cover;">
                 <div class="slide-content fade-in">
                     <h1>Natural Solutions for Better Health</h1>
                     <a href="blog.html" class="btn-primary">Read More</a>
@@ -81,7 +95,7 @@
     <!-- Featured Products -->
     <section class="products-section" id="products">
         <div class="container">
-            <h2 class="section-title fade-in-section">Search Thhrough The Best-Selling Wellness & Regenerative Products</h2>
+            <h2 class="section-title fade-in-section">Search Thhrough The Best Selling Wellness & Regenerative Products</h2>
                 <div class="products-grid">
                     <div class="product-card fade-in-section">
                         <div class="product-image" style="background: url('pictures/giv.png') center/cover;"></div>
