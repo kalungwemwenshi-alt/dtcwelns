@@ -297,8 +297,8 @@ section {
 
 .product-card .price {
     padding: 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.00rem;
+    font-weight: 300;
     color: var(--lime-green);
 }
 
