@@ -179,6 +179,18 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* Dark Mode Overrides */
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary);
+        }
+        [data-theme="dark"] .module-sidebar,
+        [data-theme="dark"] .module-section {
+            background: var(--bg-secondary);
+        }
+        [data-theme="dark"] .dialog-box {
+            background: #1a1a1a;
+        }
     </style>
 </head>
 
