@@ -109,7 +109,13 @@ h6 {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2.5rem;
+}
+
+/* Always hide hamburger on desktop */
+.mobile-menu-toggle {
+  display: none;
 }
 
 .nav-links a {
@@ -228,6 +234,13 @@ h6 {
   gap: 2rem;
 }
 
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; /* Reduced gap for mobile */
+  }
+}
+
 .product-card {
   background-color: var(--bg-secondary);
   border-radius: 20px;
@@ -238,6 +251,39 @@ h6 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    padding: 1rem 0.5rem;
+    border-radius: 12px;
+  }
+  .product-card h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .product-card p {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+  .product-price {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+  .product-img {
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+  .product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .product-actions .btn {
+    padding: 0.4rem;
+    font-size: 0.65rem;
+  }
 }
 
 .product-card:hover {
@@ -374,37 +420,86 @@ h6 {
   line-height: 1.8;
 }
 
-/* Responsive */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  /* Hamburger button */
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 4px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .mobile-menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
   }
 
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Slide-in nav panel */
   .nav-links {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8rem;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1050;
+    display: flex;
+    padding: 2rem;
   }
 
-  /* Mobile menu toggle needed */
-  .section-title {
-    font-size: 2rem;
+  .nav-links.open {
+    right: 0;
   }
 
-  .page-header h1 {
-    font-size: 2.5rem;
+  .nav-links a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
-  .hero-title-wow {
-    font-size: 3rem !important;
+  .nav-cart-link {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
   }
 
-  .floating-badge {
-    display: none;
-  }
+  /* General layout tweaks */
+  .hero h1 { font-size: 2.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .section-title { font-size: 2rem; }
+  .page-header h1 { font-size: 2.5rem; }
+  .hero-title-wow { font-size: 3rem !important; }
+  .floating-badge { display: none; }
+
+  /* WhatsApp container lower on mobile */
+  .whatsapp-support-container { bottom: 1.5rem; right: 1.5rem; }
+  .wa-chat-popup { width: 280px; }
 }
 
 /* --- WOW Hero & Trusted Section Additions --- */
@@ -719,46 +814,49 @@ h6 {
 }
 
 /* --- Cart & Checkout Overlays --- */
-.cart-fab {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+/* Navbar Cart styles */
+.nav-cart-link {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 1000;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
-.cart-fab:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+.nav-cart-link:hover {
+  background: var(--accent-green);
+  color: #fff !important;
 }
 
-.cart-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
+.nav-cart-badge {
   background: var(--accent-green);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(12, 81, 51, 0.3);
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.nav-cart-link:hover .nav-cart-badge {
+  background: #fff;
+  color: var(--accent-green);
+}
+
+@media (max-width: 768px) {
+  .nav-cart-link {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
 }
 
 /* Checkout Modal */
