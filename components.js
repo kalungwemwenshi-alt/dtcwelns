@@ -9,6 +9,7 @@ const components = {
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="products.html">Products</a>
+                    <a href="skill-up.html">Skill-Up</a>
                     <a href="blog.html">Blog</a>
                     <a href="contact.html">Contact</a>
                     <a href="#" class="nav-cart-link" id="navCartBtn">
