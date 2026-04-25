@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Dotcom Wellness</title>
+    <meta name="description" content="Expert Health Tips & Natural Wellness Insights">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            background: #fff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .blog-date {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .blog-link {
+            color: var(--accent-green);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .blog-link span {
+            margin-left: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .blog-card:hover .blog-link span {
+            transform: translateX(5px);
+        }
+
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent-green-dark), #000);
+            color: #fff;
+            padding: 4rem;
+        }
+
+        .featured-post:hover {
+            transform: none;
+            box-shadow: none;
+            background: linear-gradient(135deg, #000, var(--accent-green-dark));
+        }
+
+        .featured-post h3 {
+            color: #fff;
+            font-size: 2.5rem;
+        }
+
+        .featured-post .blog-date {
+            color: #a1dcb7;
+        }
+
+        .featured-post p {
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+                padding: 2.5rem;
+            }
+
+            .featured-post h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar injected here -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <div class="page-header" style="padding-bottom: 40px;">
+            <div class="container">
+                <h1>Wellness Journal</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">Expert Health Tips & Natural Wellness
+                    Insights</p>
+            </div>
+        </div>
+
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="blog-grid">
+
+                    <!-- Featured Post -->
+                    <div class="blog-card featured-post">
+                        <div>
+                            <div class="blog-date">October 25, 2025 • By Benno B.Mwitumba</div>
+                            <h3>Livingstone Zambia Takes the Lead in Restoration Wellness</h3>
+                            <p>Dotcom Wellness is a community focused on health and business projects in partnership
+                                with VitasphereOnline and Norland Industrial Group. This pioneering network is
+                                redefining the future of health, wealth, and business across Africa...</p>
+                            <a href="post.html#restoration-wellness" class="blog-link" style="color: #fff;">Read Full Article
+                                <span>→</span></a>
+                        </div>
+                        <img src="assets/images/herop.jpeg" alt="Featured"
+                            style="width: 100%; border-radius: 20px; object-fit: cover;">
+                    </div>
+
+                    <!-- Post -->
+                    <div class="blog-card">
+                        <div class="blog-date">October 25, 2025 • Dr. Sarah Mwansa</div>
+                        <h3>The Complete Guide to Natural Immunity Boosting</h3>
+                        <p>Discover the most effective natural methods, backed by science, to enhance your body's
+                            defenses and stay healthy throughout the year.</p>
+                        <a href="post.html#immunity-guide" class="blog-link">Read More <span>→</span></a>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="blog-card">
+                        <div class="blog-date">October 20, 2025 • Health Team</div>
+                        <h3>5 Natural Ways to Boost Your Immune System</h3>
+                        <p>Your immune system is your body's first line of defense. Fuel it naturally with nutrient-rich
+                            foods like citrus, berries, and leafy greens to fight off infections.</p>
+                        <a href="post.html#5-natural-ways" class="blog-link">Read More <span>→</span></a>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="blog-card">
+                        <div class="blog-date">October 18, 2025 • Experts</div>
+                        <h3>Why Herbal Supplements Are the Future of Medicine</h3>
+                        <p>Herbal Medicinal Products are redefining the future of medicine by offering natural, holistic
+                            solutions that work with the body, not against it.</p>
+                        <a href="post.html#herbal-future" class="blog-link">Read More <span>→</span></a>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="blog-card">
+                        <div class="blog-date">October 15, 2025 • Benno B Mwitumba</div>
+                        <h3>The Rise of the Green Health Economy in Africa</h3>
+                        <p>Africa is witnessing the rise of a revolutionary health economy powered by Green Health and
+                            Traditional Chinese regenerative medicine.</p>
+                        <a href="post.html#green-economy" class="blog-link">Read More <span>→</span></a>
+                    </div>
+
+                    <!-- Post -->
+                    <div class="blog-card">
+                        <div class="blog-date">October 10, 2025 • Wellness</div>
+                        <h3>10 African Herbs Every Wellness Enthusiast Should Know</h3>
+                        <p>A comprehensive guide to powerful indigenous African herbs that have been used for centuries
+                            to promote health, vitality, and longevity.</p>
+                        <a href="post.html#african-herbs" class="blog-link">Read More <span>→</span></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer injected here -->
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+</body>
+
+</html>

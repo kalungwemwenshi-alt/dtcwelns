@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Dotcom Wellness</title>
+    <meta name="description" content="Get in touch with product enquiries, orders or support.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        .contact-info {
+            background-color: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+        .info-item h4 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-item p, .info-item a {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .contact-form {
+            background: #fff;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: var(--bg-secondary);
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(12, 81, 51, 0.1);
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar injected here -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <div class="page-header" style="background-color: transparent;">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">We're here to help. Get in touch with product enquiries, orders, or support.</p>
+            </div>
+        </div>
+
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="contact-layout">
+                    <!-- Info Panel -->
+                    <div class="contact-info">
+                        <h3>Contact Details</h3>
+                        <div class="info-item">
+                            <h4>Phone / WhatsApp</h4>
+                            <a href="tel:+260973493949">+260 973 493 949</a>
+                        </div>
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <a href="mailto:info.dotcomwellness@gmail.com">info.dotcomwellness@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <h4>Address</h4>
+                            <p>Mosi-oa-Tunya House, Stand L247,<br>Livingstone, Zambia</p>
+                        </div>
+                        <div class="info-item" style="margin-top: 3rem;">
+                            <h4>Business Hours</h4>
+                            <p>Sun – Fri: 08:00 – 18:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Form Panel -->
+                    <div class="contact-form">
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you shortly.');">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" class="form-control" placeholder="Jane" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" class="form-control" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="hello@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="How can we help?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; padding: 1.2rem;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer injected here -->
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+</body>
+</html>

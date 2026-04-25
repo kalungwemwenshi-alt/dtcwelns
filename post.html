@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post | Dotcom Wellness</title>
+    <meta name="description" content="Expert Health Tips & Natural Wellness Insights">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .post-container {
+            display: none;
+        }
+
+        .post-container.active {
+            display: block;
+        }
+
+        .post-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .post-meta {
+            color: var(--accent-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .post-image-container {
+            max-width: 1000px;
+            margin: 0 auto 5rem auto;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 21/9;
+        }
+
+        .post-image-container img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .post-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto 6rem auto;
+            padding: 0 20px;
+        }
+
+        .post-section-title {
+            font-size: 2rem;
+            position: sticky;
+            top: 120px;
+            line-height: 1.2;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .post-section-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .post-section-content p {
+            margin-bottom: 1.8rem;
+        }
+
+        .post-section-content blockquote {
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--accent-green);
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            font-style: italic;
+            margin: 3rem 0;
+            line-height: 1.5;
+        }
+
+        .post-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 4rem 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2.75rem;
+                padding: 0 20px;
+            }
+
+            .post-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 4rem;
+            }
+
+            .post-section-title {
+                position: static;
+                font-size: 1.8rem;
+            }
+
+            .post-image-container {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main id="post-content">
+
+        <div id="restoration-wellness" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">January 24, 2026 • By Benno B.Mwitumba</div>
+                    <h1 class="post-title">Livingstone Zambia Takes the Lead in Restoration Wellness</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="assets/images/herop.jpeg" alt="Livingstone Zambia Takes the Lead in Restoration Wellness">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">A New Era of Health in Southern Province Zambia</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Livingstone Norland Champions is more than just a business; it's a community focused on
+                            health and business projects in partnership with VitasphereOnline and Norland Industrial
+                            Group. This pioneering network is redefining the future of health, wealth, and business
+                            across Africa, starting from the heart of Livingstone, Zambia.</p>
+                        <p>By integrating traditional wisdom with modern industrial capabilities, we are creating a
+                            restoration wellness ecosystem that empowers individuals to take control of their physical
+                            and financial destinies.</p>
+                    </div>
+                </section>
+                <div class="container">
+                    <div class="post-divider"></div>
+                </div>
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">The Power of Partnership</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Our collaboration with Norland Industrial Group brings world-class manufacturing standards to
+                            our doorstep. This allows us to provide premium, science-backed wellness products that are
+                            accessible to the African market. VitasphereOnline provides the digital infrastructure to
+                            connect our community across borders, ensuring that the message of restoration wellness
+                            reaches every corner of the continent.</p>
+                        <blockquote>"Restoration wellness is about returning the body to its original state of vitality
+                            and strength."</blockquote>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <div id="immunity-guide" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">October 25, 2025 • Dr. Sarah Mwansa</div>
+                    <h1 class="post-title">The Complete Guide to Natural Immunity Boosting</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=1987&auto=format&fit=crop"
+                    alt="The Complete Guide to Natural Immunity Boosting">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">The Foundation of Health</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Your immune system is your body's first line of defense against pathogens. But modern
+                            life—with its chronic stress, processed diets, and sedentary habits—can compromise this
+                            intricate network. Exploring natural ways to reinforce your immunity is not just a seasonal
+                            measure; it's a lifestyle shift.</p>
+                        <p>Fuel it naturally with nutrient-rich foods like citrus, berries, and leafy greens. These
+                            aren't just empty calories; they provide the essential vitamins, minerals, and antioxidants
+                            required to maintain biological equilibrium.</p>
+                    </div>
+                </section>
+                <div class="container">
+                    <div class="post-divider"></div>
+                </div>
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">Harnessing Herbal Power</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>For centuries, traditional medicinal systems have utilized native plants to treat ailments.
+                            Science is only now catching up, isolating active compounds in herbs like ginger, garlic,
+                            and ginseng to understand their efficacy.</p>
+                        <p>Introducing herbal supplements into your routine can act as an immunomodulator, tweaking
+                            immune response rather than just aggressively stimulating it.</p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <div id="5-natural-ways" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">October 20, 2025 • Health Team</div>
+                    <h1 class="post-title">5 Natural Ways to Boost Your Immune System</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1932&auto=format&fit=crop"
+                    alt="5 Natural Ways to Boost Your Immune System">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">Nutrition: The Ultimate Fuel</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Your immune system is your body's first line of defense. Fuel it naturally with nutrient-rich
+                            foods like citrus, berries, and leafy greens to fight off infections. Vitamin C, Vitamin D,
+                            and Zinc are critical players in this process.</p>
+                    </div>
+                </section>
+                <div class="container">
+                    <div class="post-divider"></div>
+                </div>
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">Hydration and Movement</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Water is essential for the production of lymph, which carries white blood cells and other
+                            immune system cells. Regular physical activity increases blood flow and has an
+                            anti-inflammatory effect on the body.</p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <div id="herbal-future" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">October 18, 2025 • Experts</div>
+                    <h1 class="post-title">Why Herbal Supplements Are the Future of Medicine</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop"
+                    alt="Why Herbal Supplements Are the Future of Medicine">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">The Holistic Approach</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Herbal Medicinal Products are redefining the future of medicine by offering natural, holistic
+                            solutions that work with the body, not against it. Unlike synthetic drugs that often target
+                            isolated symptoms, herbal remedies contain complex arrays of compounds that provide
+                            synergistic benefits.</p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <div id="green-economy" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">October 15, 2025 • Benno B Mwitumba</div>
+                    <h1 class="post-title">The Rise of the Green Health Economy in Africa</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013&auto=format&fit=crop"
+                    alt="The Rise of the Green Health Economy in Africa">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">A Sustainable Future</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>Africa is witnessing the rise of a revolutionary health economy powered by Green Health and
+                            Traditional Chinese regenerative medicine. This economy is built on sustainability and the
+                            empowerment of local communities through the cultivation and processing of medicinal plants.
+                        </p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <div id="african-herbs" class="post-container">
+            <div class="post-hero">
+                <div class="container">
+                    <div class="post-meta">October 10, 2025 • Wellness</div>
+                    <h1 class="post-title">10 African Herbs Every Wellness Enthusiast Should Know</h1>
+                </div>
+            </div>
+
+            <div class="post-image-container">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop"
+                    alt="10 African Herbs Every Wellness Enthusiast Should Know">
+            </div>
+
+            <article>
+
+                <section class="post-section">
+                    <div>
+                        <h2 class="post-section-title">Indigenous Wisdom</h2>
+                    </div>
+                    <div class="post-section-content">
+                        <p>A comprehensive guide to powerful indigenous African herbs that have been used for centuries
+                            to promote health, vitality, and longevity. From the antioxidant-rich Rooibos of the Cape to
+                            the healing Moringa found across the continent, these plants are natural treasures.</p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+    <script>
+        function updatePostVisibility() {
+            const hash = window.location.hash.substring(1);
+            const containers = document.querySelectorAll('.post-container');
+            let found = false;
+
+            // If no hash, show the first post
+            const targetId = hash || "restoration-wellness";
+
+            containers.forEach(container => {
+                if (container.id === targetId) {
+                    container.classList.add('active');
+                    found = true;
+                } else {
+                    container.classList.remove('active');
+                }
+            });
+
+            if (!found && containers.length > 0) {
+                containers[0].classList.add('active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('hashchange', updatePostVisibility);
+        document.addEventListener('DOMContentLoaded', updatePostVisibility);
+    </script>
+</body>
+
+</html>
