@@ -5,13 +5,21 @@ const components = {
                 <a href="index.html" class="nav-brand">
                     <img src="assets/images/logo.png" alt="Dotcom Wellness" class="brand-logo">
                 </a>
-                <div class="nav-links">
+                <div class="nav-links" id="navLinks">
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="products.html">Products</a>
                     <a href="blog.html">Blog</a>
                     <a href="contact.html">Contact</a>
+                    <a href="#" class="nav-cart-link" id="navCartBtn">
+                        🛒 <span class="nav-cart-badge" id="cartBadge">0</span>
+                    </a>
                 </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
     `,
@@ -57,16 +65,10 @@ const components = {
         </footer>
     `,
     cartModal: `
-        <!-- Floating Cart Icon -->
-        <div class="cart-fab" id="cartFab" title="View Cart">
-            🛒
-            <div class="cart-badge" id="cartBadge">0</div>
-        </div>
-
         <!-- Checkout Modal -->
         <div class="checkout-modal" id="checkoutModal">
             <div class="checkout-content">
-                <button class="close-modal" id="closeModal">×</button>
+                <button class="close-modal" id="closeModal">&times;</button>
                 <h2 class="checkout-title">Complete Order</h2>
                 
                 <div class="cart-items" id="cartItemsContainer">
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navPlaceholder = document.getElementById('navbar-placeholder');
     if (navPlaceholder) {
         navPlaceholder.innerHTML = components.navbar;
-        
+
         // Highlight active link
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const links = navPlaceholder.querySelectorAll('.nav-links a');
@@ -137,6 +139,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+            });
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        }
     }
 
     // Inject Footer
@@ -147,27 +167,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inject Cart Modal to body globally
     const body = document.querySelector('body');
-    if (body && !document.getElementById('cartFab')) {
+    if (body && !document.getElementById('checkoutModal')) {
         body.insertAdjacentHTML('beforeend', components.cartModal);
 
-        // Cart Logic
         let cart = [];
         const cartBadge = document.getElementById('cartBadge');
-        const cartFab = document.getElementById('cartFab');
+        const navCartBtn = document.getElementById('navCartBtn');
         const checkoutModal = document.getElementById('checkoutModal');
         const closeModal = document.getElementById('closeModal');
         const cartItemsContainer = document.getElementById('cartItemsContainer');
         const submitOrderBtn = document.getElementById('submitOrderBtn');
 
-        // Update UI
         function updateCartUI() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartBadge.textContent = totalItems;
-            if (totalItems > 0) {
-                cartBadge.style.display = 'flex';
-            } else {
-                cartBadge.style.display = 'none';
-            }
+            if (cartBadge) cartBadge.textContent = totalItems;
         }
 
         function renderCartItems() {
@@ -176,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('cartTotalSum').textContent = '0';
                 return;
             }
-
             let currentTotal = 0;
             cartItemsContainer.innerHTML = '';
             cart.forEach((item, index) => {
@@ -196,8 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 cartItemsContainer.appendChild(itemEl);
             });
-
-            // Add event listeners for plus/minus
             document.querySelectorAll('.qty-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const idx = parseInt(e.target.getAttribute('data-index'));
@@ -205,19 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         cart[idx].quantity++;
                     } else if (e.target.classList.contains('minus')) {
                         cart[idx].quantity--;
-                        if (cart[idx].quantity === 0) {
-                            cart.splice(idx, 1);
-                        }
+                        if (cart[idx].quantity === 0) cart.splice(idx, 1);
                     }
                     updateCartUI();
                     renderCartItems();
                 });
             });
-            
             document.getElementById('cartTotalSum').textContent = currentTotal;
         }
 
-        // Modal Toggles
         function openModal() {
             renderCartItems();
             checkoutModal.classList.add('active');
@@ -227,25 +233,28 @@ document.addEventListener('DOMContentLoaded', () => {
             checkoutModal.classList.remove('active');
         }
 
-        cartFab.addEventListener('click', openModal);
-        closeModal.addEventListener('click', hideModal);
-        
-        // Also close on click outside
-        checkoutModal.addEventListener('click', (e) => {
-            if (e.target === checkoutModal) hideModal();
-        });
+        if (navCartBtn) {
+            navCartBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+        if (closeModal) closeModal.addEventListener('click', hideModal);
+        if (checkoutModal) {
+            checkoutModal.addEventListener('click', (e) => {
+                if (e.target === checkoutModal) hideModal();
+            });
+        }
 
-        // Add to cart / Order Now buttons logic
         document.querySelectorAll('.product-card').forEach(card => {
-            const titleHTML = card.querySelector('h3').childNodes[0].nodeValue.trim(); 
-            const titleRaw = card.getAttribute('data-name') || titleHTML;
+            const titleRaw = card.getAttribute('data-name') || card.querySelector('h3').childNodes[0].nodeValue.trim();
             const priceRaw = parseInt(card.getAttribute('data-price')) || 680;
             const addBtn = card.querySelector('.action-add');
             const orderBtn = card.querySelector('.action-order');
 
             function addToCart() {
                 const existing = cart.find(item => item.name === titleRaw);
-                if(existing) {
+                if (existing) {
                     existing.quantity++;
                 } else {
                     cart.push({ name: titleRaw, price: priceRaw, quantity: 1 });
@@ -253,65 +262,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCartUI();
             }
 
-            if(addBtn) {
-                addBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    addToCart();
-                });
-            }
-
-            if(orderBtn) {
-                orderBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // Add if not already in cart, then open modal
-                    const existing = cart.find(item => item.name === titleRaw);
-                    if(!existing) {
-                        addToCart();
-                    }
-                    openModal();
-                });
-            }
-        });
-
-        // WhatsApp Submit
-        submitOrderBtn.addEventListener('click', () => {
-            const receiver = document.getElementById('receiverName').value.trim();
-            const address = document.getElementById('deliveryAddress').value.trim();
-
-            if (cart.length === 0) {
-                alert("Your cart is empty.");
-                return;
-            }
-            if (!receiver || !address) {
-                alert("Please fill in both name and delivery address.");
-                return;
-            }
-
-            let message = `*New Order from Dotcom Wellness*\\n\\n`;
-            message += `*Receiver:* ${receiver}\\n`;
-            message += `*Address:* ${address}\\n\\n`;
-            message += `*Items:*\\n`;
-            
-            let total = 0;
-            cart.forEach(item => {
-                const itemTotal = item.quantity * item.price;
-                total += itemTotal;
-                message += `- ${item.quantity}x ${item.name} (K${itemTotal})\\n`;
+            if (addBtn) addBtn.addEventListener('click', (e) => { e.preventDefault(); addToCart(); });
+            if (orderBtn) orderBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!cart.find(item => item.name === titleRaw)) addToCart();
+                openModal();
             });
-
-            message += `\\n*Grand Total: K${total}*`;
-
-            const phoneNumber = "260973493949";
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-            
-            // Optional: clear cart after sending to WhatsApp
-            cart = [];
-            updateCartUI();
-            hideModal();
         });
 
-        // init state
+        if (submitOrderBtn) {
+            submitOrderBtn.addEventListener('click', () => {
+                const receiver = document.getElementById('receiverName').value.trim();
+                const address = document.getElementById('deliveryAddress').value.trim();
+                if (cart.length === 0) { alert('Your cart is empty.'); return; }
+                if (!receiver || !address) { alert('Please fill in both name and delivery address.'); return; }
+                let message = `*New Order from Dotcom Wellness*\n\n*Receiver:* ${receiver}\n*Address:* ${address}\n\n*Items:*\n`;
+                let total = 0;
+                cart.forEach(item => {
+                    const itemTotal = item.quantity * item.price;
+                    total += itemTotal;
+                    message += `- ${item.quantity}x ${item.name} (K${itemTotal})\n`;
+                });
+                message += `\n*Grand Total: K${total}*`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/260973493949?text=${encodedMessage}`, '_blank');
+                cart = [];
+                updateCartUI();
+                hideModal();
+            });
+        }
+
         updateCartUI();
     }
 
@@ -324,14 +304,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const waSendBtn = document.getElementById('waSendBtn');
         const waUserInput = document.getElementById('waUserInput');
 
-        waFloatingBtn.addEventListener('click', () => {
+        waFloatingBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             waChatPopup.classList.toggle('active');
-            if (waChatPopup.classList.contains('active')) {
-                waUserInput.focus();
-            }
+            if (waChatPopup.classList.contains('active')) waUserInput.focus();
         });
 
-        // Close on click outside
         document.addEventListener('click', (e) => {
             if (!waChatPopup.contains(e.target) && !waFloatingBtn.contains(e.target)) {
                 waChatPopup.classList.remove('active');
@@ -341,25 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const handleWASend = () => {
             const message = waUserInput.value.trim();
             if (!message) return;
-
-            // Autocopy message
-            navigator.clipboard.writeText(message).then(() => {
-                console.log('Message copied to clipboard');
-            }).catch(err => {
-                console.error('Could not copy text: ', err);
-            });
-
-            const phoneNumber = "260973493949";
+            navigator.clipboard.writeText(message).catch(() => {});
             const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-
+            window.open(`https://wa.me/260973493949?text=${encodedMessage}`, '_blank');
             waUserInput.value = '';
             waChatPopup.classList.remove('active');
         };
 
         waSendBtn.addEventListener('click', handleWASend);
-        waUserInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleWASend();
-        });
+        waUserInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleWASend(); });
     }
 });
