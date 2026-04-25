@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Module | Academy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --sidebar-width: 320px;
+        }
+
+        body {
+            background-color: #f8fafc;
+        }
+
+        .module-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px; /* Offset for navbar */
+        }
+
+        /* Sidebar Styles */
+        .module-sidebar {
+            width: var(--sidebar-width);
+            background: #fff;
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            z-index: 100;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            font-weight: 700;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+        }
+
+        .nav-item.active {
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+            box-shadow: inset 0 0 0 1px rgba(12, 81, 51, 0.1);
+        }
+
+        .nav-item-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Content Area Styles */
+        .module-main {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 4rem;
+            max-width: 1200px;
+        }
+
+        .module-header {
+            margin-bottom: 4rem;
+        }
+
+        .module-tag {
+            color: var(--accent-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .module-main h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .module-intro {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .module-section {
+            background: #fff;
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .module-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .module-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .lesson-list {
+            list-style: none;
+        }
+
+        .lesson-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .lesson-list li:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-check {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .dialog-box {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .dialog-line {
+            margin-bottom: 1rem;
+        }
+
+        .speaker {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .module-sidebar {
+                display: none;
+            }
+            .module-main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            .module-main h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="module-wrapper">
+        <aside class="module-sidebar">
+            <div class="sidebar-title">Academy Modules</div>
+            <nav>
+                <a href="#prospecting" class="nav-item" data-target="prospecting">
+                    <span class="nav-item-icon">🔍</span> Prospecting
+                </a>
+                <a href="#communication" class="nav-item" data-target="communication">
+                    <span class="nav-item-icon">💬</span> Communication
+                </a>
+                <a href="#copywriting" class="nav-item" data-target="copywriting">
+                    <span class="nav-item-icon">✍️</span> Copywriting
+                </a>
+                <a href="#sales" class="nav-item" data-target="sales">
+                    <span class="nav-item-icon">💰</span> Sales Mastery
+                </a>
+                <a href="#branding" class="nav-item" data-target="branding">
+                    <span class="nav-item-icon">🌟</span> Personal Brand
+                </a>
+                <a href="#presenting" class="nav-item" data-target="presenting">
+                    <span class="nav-item-icon">🎤</span> Presenting
+                </a>
+                <a href="#events" class="nav-item" data-target="events">
+                    <span class="nav-item-icon">🗓️</span> Event Planning
+                </a>
+                <a href="#zoom" class="nav-item" data-target="zoom">
+                    <span class="nav-item-icon">💻</span> Zoom Expert
+                </a>
+            </nav>
+        </aside>
+
+        <main class="module-main" id="module-content">
+            <!-- Content will be injected here by JS -->
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+    <script>
+        const moduleData = {"prospecting": {"tag": "Module 01", "title": "How to Find New Friends for Your Business", "intro": "The biggest secret to success is never running out of people to talk to. In this module, we'll show you how to find 'prospects' (future friends and partners) everywhere you go, in a very natural and friendly way.", "sections": [{"title": "The 'Everyone is a Connection' Mindset", "content": "<p>You don't need to be a 'salesperson'. You just need to be a 'friend-maker'. Think of people you already know and people you haven't met yet.</p><h3>The Simple 3-Group List:</h3><p><strong>1. People you love:</strong> Your family and best friends. Just tell them what you're doing, no pressure!<br><strong>2. People you see often:</strong> Your barber, the person at the grocery store, or old workmates.<br><strong>3. New friends:</strong> People you meet at church, at the gym, or on Facebook.</p>"}, {"title": "Facebook & WhatsApp: The Friendly Way", "content": "<p>Don't just send links to people! That's like shouting at someone. Do this instead:</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Like and Comment:</strong> Go to their photo and say something nice like 'Your kids look so happy!'</li><li><span class='lesson-check'>\u2713</span> <strong>The Private Message:</strong> A few days later, send a message: 'Hey! I saw your post. How have you been? It's been a while!'</li><li><span class='lesson-check'>\u2713</span> <strong>The Bridge:</strong> If they say they are tired or stressed, that's your chance to help!</li></ul>"}, {"title": "What if they ask 'Is this a scam?'", "content": "<div class='dialog-box'><p>Don't be upset! Usually, they are just worried because they don't understand yet.</p><div class='dialog-line'><span class='speaker'>Them:</span> Is this one of those pyramid things?</div><div class='dialog-line'><span class='speaker'>You:</span> (With a smile) I know why you're asking! I used to worry about that too. But this is different because we have real products that actually help people get healthy. Have you seen what the GI Vital did for [Name] lately?</div></div>"}]}, "communication": {"tag": "Module 02", "title": "How to Talk So People Listen", "intro": "Good communication is 20% what you say and 80% how you listen. This module will show you how to make people feel comfortable and excited to talk to you.", "sections": [{"title": "The Magic of Listening", "content": "<p>Most people just wait for their turn to talk. If you listen more, people will trust you more.</p><h3>3 Simple Steps:</h3><ol class='lesson-list'><li><strong>Listen with your eyes:</strong> Look at them when they speak.</li><li><strong>Don't interrupt:</strong> Let them finish their whole story.</li><li><strong>Repeat what they said:</strong> Say 'So, what you're saying is that your stomach has been hurting for a month?' This shows you really care.</li></ol>"}, {"title": "The 'Feel-Felt-Found' Secret", "content": "<p>This is the best way to answer any worry someone has.</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Feel:</strong> 'I understand how you <strong>feel</strong>.'</li><li><span class='lesson-check'>\u2713</span> <strong>Felt:</strong> 'I <strong>felt</strong> the same way when I first heard about this.'</li><li><span class='lesson-check'>\u2713</span> <strong>Found:</strong> 'But what I <strong>found</strong> was that these products really work!'</li></ul>"}]}, "copywriting": {"tag": "Module 03", "title": "Writing Posts That People Love", "intro": "You don't need to be a writer! You just need to share your heart. This module shows you how to write posts on WhatsApp or Facebook that make people want to ask you questions.", "sections": [{"title": "The 4 Parts of a Great Post", "content": "<p>Every time you post, try to follow these 4 simple steps:</p><h3>1. The Grabber</h3><p>Start with something that makes them stop scrolling. Example: 'I can't believe I waited this long to try this...'</p><h3>2. The Story</h3><p>Tell a short story. 'My energy was so low, I couldn't even play with my kids after work.'</p><h3>3. The Good News</h3><p>Tell them what changed. 'Then I started taking the Nutrient Calcium, and now I feel 10 years younger!'</p><h3>4. The Invitation</h3><p>Tell them what to do. 'Message me if you want to know more!'</p>"}, {"title": "Words that Spark Joy", "content": "<p>Use simple, happy words. Instead of 'Regenerative Science', try 'Natural Healing' or 'Feeling Brand New'.</p><div class='dialog-box'><h3>Example of a Great Post:</h3><p>Who else hates feeling tired by 2 PM? \ud83d\ude34<br><br>I used to drink 5 cups of tea just to stay awake. But for the last week, I've had so much natural energy! I feel amazing.<br><br>If you want to feel this way too, just drop a 'YES' in the comments! \ud83d\udc47</p></div>"}]}, "sales": {"tag": "Module 04", "title": "Helping People Say YES to Health", "intro": "Sales is not about 'pushing' people to buy. It's about helping them find a solution to their problems. Think of it as a helping hand.", "sections": [{"title": "Asking the Right Questions", "content": "<p>Don't just talk about the product. Ask about THEM first.</p><ul class='lesson-list'><li>'How have you been feeling lately?'</li><li>'What have you tried to make it better?'</li><li>'If I could show you something that helped me, would you want to see it?'</li></ul>"}, {"title": "Handling the 'Too Expensive' Talk", "content": "<p>When someone says it's too expensive, they usually just don't see the value yet. Be gentle.</p><div class='dialog-box'><div class='dialog-line'><span class='speaker'>Them:</span> This is a bit pricey.</div><div class='dialog-line'><span class='speaker'>You:</span> I thought so too at first! But then I realized that I was spending more on medicine and doctor visits every month. When I started using this, I actually saved money because I stayed healthy. Does that make sense?</div></div>"}]}, "branding": {"tag": "Module 05", "title": "Being the Person Everyone Wants to Know", "intro": "Your 'Brand' is just your reputation. It's what people think of when they hear your name. We want them to think: 'That person is helpful, happy, and successful!'", "sections": [{"title": "The 3 Things to Be Known For", "content": "<p>Pick 3 things you love and talk about them often. For example:</p><ol class='lesson-list'><li><strong>Healthy Living:</strong> Share your healthy meals or exercise.</li><li><strong>Helping Others:</strong> Share stories of your team winning.</li><li><strong>Family/Faith:</strong> Show that you are a real person with a real life.</li></ol>"}, {"title": "The Profile Check-Up", "content": "<p>Look at your WhatsApp or Facebook profile. Would you want to do business with you?</p><ul class='lesson-list'><li><span class='lesson-check'>\u2713</span> <strong>Your Photo:</strong> Use a clear photo of your smiling face. No sunglasses or blurry pictures!</li><li><span class='lesson-check'>\u2713</span> <strong>Your Info:</strong> Make sure it says you help people with health and business.</li><li><span class='lesson-check'>\u2713</span> <strong>Be Happy:</strong> Try not to post negative or angry things. People follow happy leaders!</li></ul>"}]}, "presenting": {"tag": "Module 06", "title": "Speaking From the Heart to a Group", "intro": "You don't need to be a 'public speaker'. You just need to share your story with more than one person at a time.", "sections": [{"title": "The 3 Parts of a Great Talk", "content": "<h3>1. The Hook:</h3><p>Start with a question. 'Who here wants to live to be 100?'</p><h3>2. The Story:</h3><p>Share your own journey or a friend's journey. Stories are easy to remember!</p><h3>3. The Invitation:</h3><p>Tell them how they can join the family. 'We'd love to have you on this journey with us.'</p>"}, {"title": "How to Beat the Nerves", "content": "<p>It's okay to be nervous! It just means you care. Before you start, take three deep breaths and remember: You are there to HELP them, not to be perfect.</p>"}]}, "events": {"tag": "Module 07", "title": "How to Host a Great Party or Meeting", "intro": "Meetings are where the magic happens. Whether it's at your home, an office, or a hotel, the goal is to make people feel welcome and inspired.", "sections": [{"title": "The Home Tea Party (Easy & Fun)", "content": "<p>This is the best way to start! Just invite a few friends for tea and share the products.</p><ul class='lesson-list'><li><strong>Keep it short:</strong> 45 minutes is plenty.</li><li><strong>Let them try:</strong> Have some products they can taste or smell.</li><li><strong>Use a video:</strong> You don't have to explain everything. Let a video do the work!</li></ul>"}, {"title": "The Hotel or Office Meeting", "content": "<h3>Before the Meeting:</h3><p>Make sure there are enough chairs (but not too many\u2014a full room feels better!). Play some happy music while people arrive.</p><h3>During the Meeting:</h3><p>Make sure the speakers are exciting and the stories are short. People love to hear from real people!</p><h3>After the Meeting:</h3><p>The most important part! Don't let them just leave. Sit down with your guests and ask: 'What did you like best?'</p>"}]}, "zoom": {"tag": "Module 08", "title": "How to Look and Sound Great on Video", "intro": "Zoom allows you to talk to people all over the world. This module shows you how to be a 'pro' from your phone or laptop.", "sections": [{"title": "The 3 Rules of Video", "content": "<h3>1. Find the Light:</h3><p>Make sure the light is in FRONT of you, not behind you. If the light is behind you, your face will be dark.</p><h3>2. Clean Your Camera:</h3><p>Wipe your phone lens! It makes a huge difference in how clear you look.</p><h3>3. Quiet Space:</h3><p>Try to find a place where there isn't much noise so people can hear your beautiful voice clearly.</p>"}]}};
+
+        function loadModule() {
+            const hash = window.location.hash.substring(1) || "prospecting";
+            const data = moduleData[hash];
+            const contentArea = document.getElementById('module-content');
+
+            if (!data) return;
+
+            // Update sidebar active state
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.getAttribute('data-target') === hash) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            let sectionsHtml = "";
+            data.sections.forEach(sec => {
+                sectionsHtml += `
+                    <section class="module-section">
+                        <h2>${sec.title}</h2>
+                        <div class="module-section-content">
+                            ${sec.content}
+                        </div>
+                    </section>
+                `;
+            });
+
+            contentArea.innerHTML = `
+                <div class="module-header">
+                    <span class="module-tag">${data.tag}</span>
+                    <h1>${data.title}</h1>
+                    <p class="module-intro">${data.intro}</p>
+                </div>
+                ${sectionsHtml}
+            `;
+            
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('hashchange', loadModule);
+        document.addEventListener('DOMContentLoaded', loadModule);
+    </script>
+</body>
+
+</html>
